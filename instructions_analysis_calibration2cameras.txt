@@ -1,0 +1,19 @@
+1) calibScript_fc.m
+
+pre-2) fname = 'Idiv201-sphere2mm_b_';
+
+2) CC = CenterFinding2Db('/Users/FC/Doctorat/Quiescent_flow/Calibration/calibration_facu/test_data_23-juin/Camera1/','/Users/FC/Doctorat/Quiescent_flow/Calibration/calibration_facu/test_data_23-juin','Idiv201-sphere2mm_b_',50)
+
+3) 	calibInterpCfg = 'calib.mat'
+
+	folderout = '/Users/FC/Doctorat/Quiescent_flow/Calibration/calibration_facu/		test_data_23-juin';
+
+	folderin=folderout;
+	
+	[P,V]=centers2raysb(folderin,folderout,calibInterpCfg,fname,[1 2])
+
+4) 	landau1:~ FC$ python3 /Users/FC/Documents/MATLAB/Add-Ons/PTV_facu_2019/			matchingVoxel/STMPython/STM.py /Users/FC/Doctorat/Quiescent_flow/Calibration/		calibration_facu/test_data_23-juin/rays_Idiv201-sphere2mm_b_.dat
+
+5) 	[d,t,others] = readMatches('matched_Idiv201-sphere2mm_b_.dat',50);
+
+6) figure(9),plot3(d(:,3),d(:,4),d(:,5),'b-*'), grid on
